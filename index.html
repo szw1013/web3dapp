@@ -76,8 +76,16 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="main_image"></div>
+
                     <div class="card-body">
+                        <x3d width='500px' height='400px'>
+                            <scene>
+                                <viewpoint position="-1.94639 1.79771 -2.89271"
+                                    orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
+                                <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
+                                    url="assets/x3d/Deer.x3d" />
+                            </scene>
+                        </x3d>
                         <h4 class="card-title">Coca Cola X3D Model</h4>
                         <p class="card-text">This is the model to be set in X3D</p>
                         <h5 class="card-subtitle">Camera Views</h5>
@@ -150,6 +158,15 @@
             </div>
         </div>
     </nav>
+    <!-- java script code in single app page -->
+    <script>
+        function redNose() {
+            if (document.getElementById('Deer__MA_Nose').getAttribute('diffuseColor') != '1 0 0')
+                document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '1 0 0');
+            else
+                document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
+        }
+    </script>
 </body>
 
 </html>
