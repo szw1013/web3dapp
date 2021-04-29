@@ -133,6 +133,24 @@ h1, h2, h3, h4, h5, h6 {
 	src: url("../assets/fonts/loki_cola/LOKICOLA.TTF");
 }
 
+/* override x3dom.css for assignment */
+.gallery-header {
+    color: white;
+}
+
+.gallery-header:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
+.model3D  {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 1.0);
+    padding: 2px;
+    height: 200px;
+}
+
 #main_image {
     height: 200px;
     /* background-color: #cccccc; */

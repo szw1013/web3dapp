@@ -8,13 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/custom.css">
     <!-- X3dom -->
     <link rel='stylesheet' type='text/css' href='css/x3dom.css'>
-    <!-- Include the x3dom JavaScript -->
-    <script type='text/javascript' src='js/x3dom.js'></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Include the x3dom JavaScript -->
+    <script type='text/javascript' src='js/x3dom.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -40,7 +41,9 @@
                 <a class="nav-link active" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom"
+                    title="About Web 3D Applications"
+                    data-content="3D Apps is a final year and postgraduate module ...">About</a>
             </li>
 
             <!-- Dropdown -->
@@ -61,7 +64,7 @@
     </nav>
     <div class="container-fluid main_contents">
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-9">
                 <div class="card text-left">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
@@ -78,15 +81,18 @@
                     </div>
 
                     <div class="card-body">
-                        <x3d width='500px' height='400px'>
-                            <scene>
-                                <viewpoint position="-1.94639 1.79771 -2.89271"
-                                    orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
-                                <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
-                                    url="assets/x3d/Deer.x3d" />
-                            </scene>
-                        </x3d>
+
                         <h4 class="card-title">Coca Cola X3D Model</h4>
+                        <div class="model3D">
+                            <x3d>
+                                <scene>
+                                    <viewpoint position="-1.94639 1.79771 -2.89271"
+                                        orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
+                                    <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
+                                        url="assets/x3d/Deer.x3d" />
+                                </scene>
+                            </x3d>
+                        </div>
                         <p class="card-text">This is the model to be set in X3D</p>
                         <h5 class="card-subtitle">Camera Views</h5>
                         <div class="camera-btns">
@@ -103,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="card text-left">
                     <div class="card-header">
                         3D Image Gallery
@@ -166,6 +172,9 @@
             else
                 document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
         }
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
     </script>
 </body>
 
