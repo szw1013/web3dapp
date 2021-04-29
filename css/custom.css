@@ -20,6 +20,35 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(182, 231, 243, 1.0);
 }
 
+.img-thumbnail {
+    padding: 0.25rem;
+    margin-top: 5px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color:  #760003; /* Font color for active font */
+    background-color: #3399ff; /* Blue color for background */
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link {
+    color: white;  
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Added this to emulate the nav-bar link styling */
+.nav-tabs .nav-link:hover {
+    color: green;
+    border: 1px solid transparent;
+}
+
 /* coca cola logo custom design */
 .logo {
     margin-top: 3px;
