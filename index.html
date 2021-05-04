@@ -16,9 +16,11 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Include the x3dom JavaScript -->
     <script type='text/javascript' src='js/x3dom.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="script/getJsonData.js"></script>
+    <script src="script/custom.js"></script>
     <title>2021 Web 3D App</title>
 </head>
 
@@ -38,7 +40,7 @@
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link active" id="btnHome" href="#">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom"
@@ -52,9 +54,9 @@
                     Drinks
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Coca Cola</a>
-                    <a class="dropdown-item" href="#">Sprite</a>
-                    <a class="dropdown-item" href="#">Dr Pepper</a>
+                    <a class="dropdown-item" id="btnCoke" href="#">Coca Cola</a>
+                    <a class="dropdown-item" id="btnSprite" href="#">Sprite</a>
+                    <a class="dropdown-item" id="btnPepper" href="#">Dr Pepper</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -62,88 +64,139 @@
             </li>
         </ul>
     </nav>
-    <div class="container-fluid main_contents">
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="card text-left">
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="coke.html">Coke</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="sprite.html">Sprite</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pepper.html">Pepper</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-
-                        <h4 class="card-title">Coca Cola X3D Model</h4>
-                        <div class="model3D">
-                            <x3d>
-                                <scene>
-                                    <viewpoint position="-1.94639 1.79771 -2.89271"
-                                        orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
-                                    <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
-                                        url="assets/x3d/Deer.x3d" />
-                                </scene>
-                            </x3d>
+    <div class="container-fluid">
+        <div class="main_contents" id="home">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="card text-left">
+                        <div id="homeContents">
+                            <div id="main_image">
+                                <div id="main_text" class="col-xs-12 col-sm-4">
+                                    <div id="title_home"></div>
+                                    <div id="subTitle_home"></div>
+                                    <div id="description_home"></div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="card-text">This is the model to be set in X3D</p>
-                        <h5 class="card-subtitle">Camera Views</h5>
-                        <div class="camera-btns">
-                            <p class="card-text">These buttons select a range of X3D model viewpoints</p>
-                            <div class="btn-group ">
-                                <a href="#" class="btn btn-primary btn-responsive camera-font">Front</a>
-                                <a href="#" class="btn btn-secondary btn-responsive camera-font">Back</a>
-                                <a href="#" class="btn btn-success btn-responsive camera-font">Left</a>
-                                <a href="#" class="btn btn-danger btn-responsive camera-font">Right</a>
-                                <a href="#" class="btn btn-warning btn-responsive camera-font">Top</a>
-                                <a href="#" class="btn btn-outline-dark disabled btn-responsive camera-font">Off</a>
+                        <div class="card-header" id="x3dTabs">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="x3dCokeTab">Coke</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="x3dSpriteTab">Sprite</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="x3dPepperTab">Pepper</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div id="cokeContents">
+                                <div id="title_coke"></div>
+                                <div class="model3D">
+                                    <x3d>
+                                        <scene>
+                                            <viewpoint position="-1.94639 1.79771 -2.89271"
+                                                orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
+                                            <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
+                                                url="assets/x3d/Deer.x3d" />
+                                        </scene>
+                                    </x3d>
+                                </div>
+                                <div id="title_x3dcoke"></div>
+                            </div>
+                            <div id="spriteContents">
+                                <div id="title_sprite"></div>
+                                <div class="model3D">
+                                    <x3d>
+                                        <scene>
+                                            <viewpoint position="-1.94639 1.79771 -2.89271"
+                                                orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
+                                            <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
+                                                url="assets/x3d/Deer.x3d" />
+                                        </scene>
+                                    </x3d>
+                                </div>
+                                <div id="title_x3dsprite"></div>
+                            </div>
+                            <div id="pepperContents">
+                                <div id="title_pepper"></div>
+                                <div class="model3D">
+                                    <x3d>
+                                        <scene>
+                                            <viewpoint position="-1.94639 1.79771 -2.89271"
+                                                orientation="0.03886 0.99185 0.12133 3.75685"></viewpoint>
+                                            <Inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();'
+                                                url="assets/x3d/Deer.x3d" />
+                                        </scene>
+                                    </x3d>
+                                </div>
+                                <div id="title_x3dpepper"></div>
+                            </div>
+                            <div id="cameraContents">
+                                <div id="title_camera"></div>
+                                <div class="camera-btns">
+                                    <div id="description_camera"></div>
+                                    <div class="btn-group ">
+                                        <a href="#" class="btn btn-primary btn-responsive camera-font">Front</a>
+                                        <a href="#" class="btn btn-secondary btn-responsive camera-font">Back</a>
+                                        <a href="#" class="btn btn-success btn-responsive camera-font">Left</a>
+                                        <a href="#" class="btn btn-danger btn-responsive camera-font">Right</a>
+                                        <a href="#" class="btn btn-warning btn-responsive camera-font">Top</a>
+                                        <a href="#"
+                                            class="btn btn-outline-dark disabled btn-responsive camera-font">Off</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card text-left">
-                    <div class="card-header">
-                        3D Image Gallery
+                <div class="col-sm-3">
+                    <div class="card text-left">
+                        <div id="title_gallery"></div>
+                        <a href="#">
+                            <img class="card-img-top img-fluid img-thumbnail" src="assets/images/3dcocacola.jpeg"
+                                alt="Coca Cola">,
+                        </a>
+                        <a href="#">
+                            <img class="card-img-top img-fluid img-thumbnail" src="assets/images/3dsprite.jpg"
+                                alt="Sprite">
+                        </a>
+                        <a href="#">
+                            <img class="card-img-top img-fluid img-thumbnail" src="assets/images/3dpepper.jpeg"
+                                alt="Pepper">
+                        </a>
+                        <div id="description_gallery"></div>
                     </div>
-                    <a href="coke.html">
-                        <img class="card-img-top img-fluid img-thumbnail" src="assets/images/coca_cola.jpg"
-                            alt="Coca Cola">
-                    </a>
-                    <a href="sprite.html">
-                        <img class="card-img-top img-fluid img-thumbnail" src="assets/images/sprite.jpg"
-                            alt="Coca Cola">
-                    </a>
-                    <a href="pepper.html">
-                        <img class="card-img-top img-fluid img-thumbnail" src="assets/images/dr_pepper.jpg"
-                            alt="Coca Cola">
-                    </a>
-                    <p class="card-text">3D Images rendered in 3ds</p>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card" id="CocaColaCard">
                     <div class="card-body">
-                        <h3 class="card-title">Coca Cola</h3>
-                        <p class="card-text">It was 1886, and in New York Harbour, workers were constructing the Statue
-                            of Liberty. Eight hundred miles away, another great American symbol was about to be
-                            unveiled.
-                            Like many people who change history, John Pemberton, an Atlanta pharmacist, was inspired by
-                            simple curiosity. One afternoon, he stirred up a fragrant, caramel-coloured liquid and, when
-                            it was done, he carried it a few doors down to Jacobs' Pharmacy. Here, the mixture was
-                            combined with carbonated water and sampled by customers who all agreed - this new drink was
-                            something special. So Jacobs' Pharmacy put it on sale for five cents (about 3p) a glass.</p>
-                        <a href="#" class="btn btn-primary">Find out more ...</a>
+                        <div id="title_coke"></div>
+                        <div id="subTitle_coke"></div>
+                        <div id="description_coke"></div>
+                        <a class="btn btn-primary" href="https://www.coca-cola.com/">Find out more ...</a>
+                    </div>
+                </div>
+                <div class="card" id="SpriteCard">
+                    <div class="card-body">
+                        <div id="title_sprite"></div>
+                        <div id="subTitle_sprite"></div>
+                        <div id="description_sprite"></div>
+                        <a class="btn btn-primary" href="https://www.sprite.com/">Find out more ...</a>
+                    </div>
+                </div>
+                <div class="card" id="PepperCard">
+                    <div class="card-body">
+                        <div id="title_pepper"></div>
+                        <div id="subTitle_pepper"></div>
+                        <div id="description_pepper"></div>
+                        <a class="btn btn-primary" href="https://www.drpepper.com/">Find out more ...</a>
                     </div>
                 </div>
             </div>
@@ -154,7 +207,8 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="navbar-text float-left copyright">
-                <span class="align-baseline">&copy 2021 Mobile Web 3D</span>
+                <span class="align-baseline">&copy 2021 Mobile Web 3D, github address:
+                    https://github.com/szw1013/web3dapp</span>
             </div>
             <div class="navbar-text float-right social">
                 <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
@@ -164,18 +218,6 @@
             </div>
         </div>
     </nav>
-    <!-- java script code in single app page -->
-    <script>
-        function redNose() {
-            if (document.getElementById('Deer__MA_Nose').getAttribute('diffuseColor') != '1 0 0')
-                document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '1 0 0');
-            else
-                document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
-        }
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
 </body>
 
 </html>
