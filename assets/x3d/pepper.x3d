@@ -2,8 +2,13 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
   <Scene DEF='scene'>
-    <Viewpoint DEF='Camera001' description='Camera001' orientation='0.4441 0.8736 0.1991 -0.9482' position='-97.58 64.04 87.35' fieldOfView='0.6024'/>
-    <NavigationInfo DEF='NavInfo001' type='"EXAMINE"'/>
+    <Viewpoint DEF='CameraDefault' description='Camera001' orientation='0.4441 0.8736 0.1991 -0.9482' position='-97.58 64.04 87.35' fieldOfView='0.2'/>
+    <Viewpoint DEF='CameraFront' description='CameraFront' orientation='0 0 -1 -0.007317' position='0 0 2200' fieldOfView='0.2'/>
+    <Viewpoint DEF='CameraRight' description='CameraRight' orientation='-3.304e-005 -1 -3.304e-005 -1.571' position='2200 0 0' fieldOfView='0.2'/>
+    <Viewpoint DEF='CameraLeft' description='CameraLeft' orientation='0 1 0 -1.571' position='-2200 0 0' fieldOfView='0.2'/>
+    <Viewpoint DEF='CameraBack' description='CameraBack' orientation='0 -1 0 -3.142' position='0 0 -2200' fieldOfView='0.2'/>
+    <Viewpoint DEF='CameraTop' description='CameraTop' orientation='1 0 0 -1.571' position='0 2200 0.0001097' fieldOfView='0.2'/>
+    <NavigationInfo DEF='headlight' type='"EXAMINE"'/>
     <Transform DEF='decalArea' translation='0 -15.41 0'>
       <Shape>
         <Appearance>
